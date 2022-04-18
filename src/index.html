@@ -1,0 +1,563 @@
+<html>
+
+<head>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="js/web3.min.js"></script>
+	<script src="js/truffle-contract.js"></script>
+	<script src="js/app.js"></script>
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+	<!-- Bootstrap -->
+
+	<style>
+		body {
+			background: url('http://www.allwhitebackground.com/images/6/Beautiful-Powerpoint-Background-Pictures.jpg');
+			background-size: 100% 100%;
+		}
+
+		.center-div {
+			text-align: left;
+		}
+
+		/* 
+		table,
+		th,
+		td {
+			border: 0.1px solid black;
+		} */
+	</style>
+
+</head>
+
+<body>
+	<div class="container mb-5">
+		<h1 class="text-center mt-5"><strong>Track Products</strong></span></h1>
+		<img src="https://img.freepik.com/free-vector/employees-deliver-goods-various-forms-customers_1150-35058.jpg?t=st=1650183335~exp=1650183935~hmac=3996e85332ca6283fb9d8c5ab72f6bdc673fbaf3dcfb6a00cbf3764bb1e4bce3&w=1380"
+			alt="" width="800" height="380" style="display: block;
+			margin-left: auto;
+			margin-right: auto;" />
+
+		<div class="row">
+			<div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Manufacturer</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDM" class="form-control" name="productIDM" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Product</label>
+							<div class="col-sm-8">
+								<input id="productM" class="form-control" name="productM" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Brand</label>
+							<div class="col-sm-8">
+								<input id="brandM" class="form-control" name="brandM" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Location</label>
+							<div class="col-sm-8">
+								<input id="locationM" class="form-control" name="locationM" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-manufacturer mb-3"
+							title="Ensure Metamask address as 0xcB41A24...a7a4" type="button" data-id="0"> Create
+							Product</button>
+						<div class="row mb-3 mt-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Transport Agency</label>
+							<div class="col-sm-8">
+								<input id="tAgency" class="form-control" name="tAgency" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Location</label>
+							<div class="col-sm-8">
+								<input id="destAddr" class="form-control" name="destAddr" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-shipM mb-3"
+							title="Ensure Metamask address as 0xcB41A24...a7a4" type="button" data-id="0">Ship
+							Product</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Distributor</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDD" class="form-control" name="productIDD" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Transport Agency</label>
+							<div class="col-sm-8">
+								<input id="transportD" class="form-control" name="transportD" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Destination Address</label>
+							<div class="col-sm-8">
+								<input id="destAddrD" class="form-control" name="destAddrD" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-distributer"
+							title="Ensure Metamask address as 0x8c24E5e...4b04" type="button" data-id="0">
+							Ship Product</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Retailer</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDRT" class="form-control" name="productIDRT" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-retailTracking"
+							title="Ensure Metamask address as 0x27AE28a5...74CB" type="button" data-id="0">
+							Product Tracking
+							Details</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<!-- <div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Retailer</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDR" class="form-control" name="productIDR" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Transport Agency</label>
+							<div class="col-sm-8">
+								<input id="transportR" class="form-control" name="transportR" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Destination Address</label>
+							<div class="col-sm-8">
+								<input id="destAddrR" class="form-control" name="destAddrR" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Price</label>
+							<div class="col-sm-8">
+								<input id="priceR" class="form-control" name="priceR" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-retailer"
+							title="Ensure Metamask address as 0x27AE28a5...74CB" type="button" data-id="0">Sell
+							Product</button>
+					</form>
+				</div>
+			</div> -->
+			<div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Customer</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDCT" class="form-control" name="productIDCT" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-customerTracking mb-4" type="button" data-id="0">Product
+							Tracking</button>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Amount</label>
+							<div class="col-sm-8">
+								<input id="amount" class="form-control" name="amount" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-buy"
+							title="Ensure any different Metamask address as customer" type="button"
+							data-id="0">Pay</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-4 mb-4">
+				<div class="card shadow p-4 mt-5" style="width: 25rem;">
+					<h3 class="mb-5">Transport Agent at Destination</h3>
+					<form>
+						<div class="row mb-3">
+							<label for="inputEmail3" class="col-sm-4 col-form-label">Product ID</label>
+							<div class="col-sm-8">
+								<input id="productIDC" class="form-control" name="productIDC" type="text" />
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="inputPassword3" class="col-sm-4 col-form-label">Address</label>
+							<div class="col-sm-8">
+								<input id="destAddrC" class="form-control" name="destAddrC" type="text" />
+							</div>
+						</div>
+						<button class="btn btn-primary btn-customer" type="button" data-id="0">Update Track
+							info</button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="p-5">
+			<h3 class="mt-4 text-center">Transaction History</h3>
+			<table id="posts" class="table table-bordered my-5">
+				<tbody>
+					<tr>
+						<th id="test">Owner</th>
+						<th>Product ID</th>
+						<th>Tx Hash</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td id="productID">&nbsp;</td>
+						<td id="hash">&nbsp;</td>
+						<td id="nonce">&nbsp;</td>
+						<td id="from">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="p-5">
+			<h3 class="mt-4 text-center">Product Tracking Details</h3>
+			<table id="trackInfo" class="table table-bordered my-5">
+				<tbody>
+					<tr>
+						<th id="test">Owner</th>
+						<th>Location</th>
+						<th>Description</th>
+						<th>Time</th>
+					</tr>
+					<tr>
+						<td id="owner">&nbsp;</td>
+						<td id="location">&nbsp;</td>
+						<td id="description">&nbsp;</td>
+						<td id="time">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- <p style="text-align: center;">&nbsp;</p>
+		<table style="margin-left: auto; margin-right: auto;">
+			<tbody>
+				<tr>
+					<td style="width: 255.2px;" colspan="3">
+						<h1 style="text-align: center;"><span style="color: #993366;"><img
+									src="Manufacturer-Distributer-Retailer.jpg" alt="" /></span></h1>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 255.2px;">
+						<table style="margin-left: auto; margin-right: auto;">
+							<tbody>
+								<tr>
+									<td style="width: 245.6px;" colspan="2">
+										<h1 style="text-align: center;"><span style="color: #993366;"> Manufacturer
+											</span>
+										</h1>
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="productIDM"> Product ID
+										</label></td>
+									<td style="width: 160.8px;"><input id="productIDM" name="productIDM" type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="productM">
+											Product</label>
+									</td>
+									<td style="width: 160.8px;"><input id="productM" name="productM" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="brandM">Brand</label>
+									</td>
+									<td style="width: 160.8px;"><input id="brandM" name="brandM" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label
+											for="locationM">Location</label>
+									</td>
+									<td style="width: 160.8px;"><input id="locationM" name="locationM" type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 245.6px; text-align: center;" colspan="2"><button
+											class="btn btn-primary btn-manufacturer"
+											title="Ensure Metamask address as 0xcB41A24...a7a4" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; Create Product &nbsp; &nbsp; &nbsp; &nbsp;
+											&nbsp;
+											&nbsp; &nbsp;</button>&nbsp;</td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="tAgency">Transport
+											Agency</label></td>
+									<td style="width: 164px;"><input id="tAgency" name="tAgency" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="destAddr">Destination
+											Address</label></td>
+									<td style="width: 164px;"><input id="destAddr" name="destAddr" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="width: 248.8px; text-align: center;" colspan="2"><button
+											class="btn btn-primary btn-shipM"
+											title="Ensure Metamask address as 0xcB41A24...a7a4" type="button"
+											data-id="0">&nbsp;Ship Product&nbsp;</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td style="width: 255.2px;">
+						<table style="height: 215px;" width="252">
+							<tbody>
+								<tr>
+									<td style="width: 246.4px; text-align: center;" colspan="2">
+										<h1 style="text-align: center;"><span style="color: #0000ff;"><span
+													style="color: #993366;">Distributer</span><strong>&nbsp;</strong></span>
+										</h1>
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 80px; text-align: center;"><label for="productIDD">Product
+											ID</label>
+									</td>
+									<td style="width: 160.8px;"><input id="productIDD" name="productIDD" type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 80px; text-align: center;"><label for="transportD">Transport
+											Agency</label></td>
+									<td style="width: 160.8px;"><input id="transportD" name="transportD" type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 80px; text-align: center;"><label for="destAddrD">Destination
+											Address</label></td>
+									<td style="width: 160.8px;"><input id="destAddrD" name="destAddrD" type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 80px;">&nbsp;</td>
+									<td style="width: 160.8px;">&nbsp;</td>
+								</tr>
+								<tr>
+									<td style="width: 246.4px; text-align: center;" colspan="2"><button
+											class="btn btn-default btn-distributer"
+											title="Ensure Metamask address as 0x8c24E5e...4b04"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; Ship Product&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											&nbsp; &nbsp;</button>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td style="width: 228.8px;">
+						<table>
+							<tbody>
+								<tr>
+									<td style="width: 245.6px; text-align: center;" colspan="2">
+										<h1><span style="color: #993366;">Retailer</span></h1>
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 79.2px; text-align: center;"><label for="productIDRT">Product
+											ID</label></td>
+									<td style="width: 160.8px;"><input id="productIDRT" name="productIDRT"
+											type="text" />
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 245.6px; text-align: center;" colspan="2"><button
+											class="btn btn-default btn-retailTracking"
+											title="Ensure Metamask address as 0x27AE28a5...74CB"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Product Tracking
+											Details&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</button>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 255.2px;" colspan="3">
+						<h1 style="text-align: center;"><span style="color: #993366;"><img src="Retail-Customer.jpg"
+									alt="" /></span></h1>
+					</td>
+				</tr>
+				<tr>
+					<td style="width: 255.2px;">
+						<table width="252">
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<h1 style="text-align: center;"><span
+												style="color: #993366;">Retailer<strong>&nbsp;</strong></span></h1>
+									</td>
+								</tr>
+								<tr style="text-align: center;">
+									<td><label for="productIDR">Product ID</label></td>
+									<td><input id="productIDR" name="productIDR" type="text" /></td>
+								</tr>
+								<tr style="text-align: center;">
+									<td><label for="transportR">Transport Agency</label></td>
+									<td><input id="transportR" name="transportR" type="text" /></td>
+								</tr>
+								<tr style="text-align: center;">
+									<td><label for="destAddrR">Destination Address</label></td>
+									<td><input id="destAddrR" name="destAddrR" type="text" /></td>
+								</tr>
+								<tr style="text-align: center;">
+									<td><label for="priceR">Price</label></td>
+									<td style="width: 160.8px;"><input id="priceR" name="priceR" type="text" /></td>
+								</tr>
+								<tr style="text-align: center;">
+									<td colspan="2"><button class="btn btn-default btn-retailer"
+											title="Ensure Metamask address as 0x27AE28a5...74CB"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; Sell Product&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											&nbsp; &nbsp;</button>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td style="width: 255.2px; text-align: center;">&nbsp;
+						<h1><span style="color: #993366;">Transport Agent At Destination</span></h1>
+						<table width="254">
+							<tbody>
+								<tr>
+									<td style="width: 79.2px;"><label for="productIDC">Product ID</label></td>
+									<td style="width: 160.8px;"><input id="productIDC" name="productIDC" type="text" />
+									</td>
+								</tr>
+								<tr style="text-align: center;">
+									<td><label for="destAddrC">Address</label></td>
+									<td><input id="destAddrC" name="destAddrC" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="width: 245.6px;" colspan="2"><button class="btn btn-default btn-customer"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Update Track info&nbsp; &nbsp;
+											&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</button>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td style="width: 228.8px; text-align: center;">
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<h1><span style="color: #993366;">Customer</span></h1>
+						<table width="254">
+							<tbody>
+								<tr>
+									<td><label for="productIDCT">Product ID</label></td>
+									<td><input id="productIDCT" name="productIDCT" type="text" /></td>
+								</tr>
+								<tr>
+									<td colspan="2"><button class="btn btn-default btn-customerTracking"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Product Tracking &nbsp; &nbsp;
+											&nbsp;
+											&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</button>&nbsp;</td>
+								</tr>
+								<tr>
+									<td><label for="amount">Amount</label></td>
+									<td><input id="amount" name="amount" type="text" /></td>
+								</tr>
+								<tr>
+									<td style="text-align: center;" colspan="2"><button class="btn btn-default btn-buy"
+											title="Ensure any different Metamask address as customer"
+											style="background-color: green; color: white;" type="button"
+											data-id="0">&nbsp;Pay&nbsp;</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+
+		<!-- <p style="text-align: center;">&nbsp;</p>
+		<p style="text-align: center;">&nbsp;</p>
+		<table id="posts" style="height: 67px; float: left;" width="562" align="center">
+			<tbody>
+				<tr>
+					<th id="test" style="width: 139.2px; text-align: center;"><span style="color: #808000;">Owner</span>
+					</th>
+					<th style="width: 88.8px; text-align: center;"><span style="color: #808000;">Product ID</span></th>
+					<th style="width: 177.6px; text-align: center;"><span style="color: #808000;">Tx Hash</span></th>
+					<th style="width: 130.4px; text-align: center;"><span style="color: #808000;">Description</span>
+					</th>
+				</tr>
+				<tr>
+					<td id="productID" style="width: 139.2px;">&nbsp;</td>
+					<td id="hash" style="width: 88.8px;">&nbsp;</td>
+					<td id="nonce" style="width: 177.6px;">&nbsp;</td>
+					<td id="from" style="width: 130.4px;">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="trackInfo" style="height: 67px; float: right;" width="562" align="center">
+			<tbody>
+				<tr>
+					<th id="test" style="width: 112px; text-align: center;"><span style="color: #993366;">Owner</span>
+					</th>
+					<th style="width: 144px; text-align: center;"><span style="color: #993366;">Location</span></th>
+					<th style="width: 130.4px; text-align: center;"><span style="color: #993366;">Description</span>
+					</th>
+					<th style="width: 87.2px; text-align: center;"><span style="color: #993366;">Time</span></th>
+				</tr>
+				<tr>
+					<td id="owner" style="width: 139.2px;">&nbsp;</td>
+					<td id="location" style="width: 88.8px;">&nbsp;</td>
+					<td id="description" style="width: 177.6px;">&nbsp;</td>
+					<td id="time" style="width: 130.4px;">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<p style="text-align: center;">&nbsp;</p> -->
+
+	</div>
+
+</body>
+
+</html>
